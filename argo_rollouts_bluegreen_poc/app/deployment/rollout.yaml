@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: my-app-rollout
+  namespace: default
 spec:
   replicas: 2
   strategy:
@@ -21,6 +22,6 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: your-dockerhub-user/my-app:v1  # Will be updated by CI/CD pipeline
+        image: your-dockerhub-user/my-app:v1
         ports:
         - containerPort: 80
